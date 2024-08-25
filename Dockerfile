@@ -11,10 +11,11 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the application code
-COPY . /app/
+COPY app.py app.py
+COPY modelo.pkl modelo.pkl
 
 # Expose the port
 EXPOSE 8000
 
 # Run the command to start the development server
-CMD ["python", "main.py"]
+CMD ["python", "app.py"]

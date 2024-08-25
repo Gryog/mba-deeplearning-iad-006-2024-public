@@ -10,8 +10,7 @@ with open('modelo.pkl', 'rb') as file:
 @app.route('/predict', methods=['POST'])
 def predict():
    
-   data = request.get_json(force=True)
-   print(data)
+   data = request.get_json()
    prediction = modelo.predict([data['input']])
    return jsonify({'prediction': prediction.tolist()})
 
